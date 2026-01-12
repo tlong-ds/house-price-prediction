@@ -22,8 +22,11 @@ pipeline {
             }
             steps {
                 echo 'Testing model correctness..'
-                sh 'pip install -r requirements.txt && pytest'
-            }
+		withEnv(["HOME=${env.WORKSPACE}"]) {
+         	   sh 'pip install -r requirements.txt'
+		   sh 'pytest'
+       		}	
+        }
         }
         stage('Build') {
             steps {
