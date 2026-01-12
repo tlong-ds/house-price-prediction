@@ -24,7 +24,7 @@ pipeline {
                 echo 'Testing model correctness..'
 		sh '''
             	python3 -m venv venv
-            	source venv/bin/activate
+            	. venv/bin/activate
             	pip install -r requirements.txt
             	pytest
         	'''	
